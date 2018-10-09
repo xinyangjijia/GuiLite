@@ -254,7 +254,6 @@ void c_wave_ctrl::clear_wave(void)
 
 void c_wave_ctrl::restore_background()
 {
-	//earse oldest vline = draw background on foreground.
 	int  x = m_wave_cursor + WAVE_CURSOR_WIDTH;
 	if (x > m_wave_right)
 	{
@@ -266,7 +265,7 @@ void c_wave_ctrl::restore_background()
 	register int width = rect.Width();
 	register int top = rect.m_top;
 	register int left = rect.m_left;
-	unsigned int* p_fb = (unsigned int*)m_bg_fb;
+	unsigned int* p_fb = m_bg_fb;
 
 	for (int y_pos = (m_wave_top - 1); y_pos <= (m_wave_bottom + 1); y_pos++)
 	{
@@ -278,8 +277,8 @@ void c_wave_ctrl::save_background()
 {
 	c_rect rect;
 	get_screen_rect(rect);
-	//copy foreground to background
-	register unsigned short* p_des = (unsigned short*)m_bg_fb;
+	
+	register unsigned int* p_des = m_bg_fb;
 	for (int y = rect.m_top; y <= rect.m_bottom; y++)
 	{
 		for (int x = rect.m_left; x <= rect.m_right; x++)

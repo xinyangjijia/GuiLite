@@ -21,7 +21,7 @@ GLT_END_MESSAGE_MAP()
 void c_spin_box::pre_create_wnd()
 {
 	m_style = GLT_ATTR_VISIBLE | GLT_ATTR_FOCUS | ALIGN_HCENTER | ALIGN_VCENTER;
-	m_font_type = c_my_resource::get_font(FONT_ENG_SMB_AA);
+	m_font_type = c_my_resource::get_font(FONT_ENG_SMB);
 	m_bg_color = c_my_resource::get_color(CTRL_BACK_GROUND);
 	m_font_color = c_my_resource::get_color(CTRL_FORE_GROUND);
 
