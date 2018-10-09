@@ -178,8 +178,8 @@ int c_word::draw_single_char(c_surface* surface, int z_order, unsigned int utf8_
 	{
 		for (int x_ = 0; x_ < len; x_++)
 		{
-			((y_ % 4) == 0) ? surface->set_pixel((x + x_), (y + y_), 0, z_order) :
-							surface->set_pixel((x + x_), (y + y_), 0xFFFFFFFF, z_order);
+			((y_ % 4) == 0) ? surface->draw_pixel((x + x_), (y + y_), 0, z_order) :
+							surface->draw_pixel((x + x_), (y + y_), 0xFFFFFFFF, z_order);
 		}
 	}
 	return len;
@@ -200,7 +200,7 @@ void c_word::draw_lattice(c_surface* surface, int z_order, int x, int y, int wid
 			{
 				if (bg_color != COLOR_TRANPARENT)
 				{
-					surface->set_pixel(x + x_, y + y_, bg_color_set, z_order);
+					surface->draw_pixel(x + x_, y + y_, bg_color_set, z_order);
 				}
 			}
 			else
@@ -208,7 +208,7 @@ void c_word::draw_lattice(c_surface* surface, int z_order, int x, int y, int wid
 				b = (GLT_RGB_B(font_color) * value + GLT_RGB_B(bg_color_set) * (255 - value)) >> 8;
 				g = (GLT_RGB_G(font_color) * value + GLT_RGB_G(bg_color_set) * (255 - value)) >> 8;
 				r = (GLT_RGB_R(font_color) * value + GLT_RGB_R(bg_color_set) * (255 - value)) >> 8;
-				surface->set_pixel((x + x_), (y + y_), GLT_RGB(r, g, b), z_order);
+				surface->draw_pixel((x + x_), (y + y_), GLT_RGB(r, g, b), z_order);
 			}
 			p_data++;
 		}
