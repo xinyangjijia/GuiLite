@@ -146,11 +146,11 @@ void c_edit::on_paint()
 
 	if (strlen(m_str_input))
 	{
-		c_word::draw_string_in_rect(m_surface, m_parent->get_z_order(), m_str_input, rect, m_font_type, m_font_color, COLOR_TRANPARENT, m_style);
+		c_word::draw_string_in_rect(m_surface, m_parent->get_z_order(), m_str_input, rect, m_font_type, m_font_color, GL_ARGB(0, 0, 0, 0), m_style);
 	}
 	else
 	{
-		c_word::draw_string_in_rect(m_surface, m_parent->get_z_order(), m_str, rect, m_font_type, m_font_color, COLOR_TRANPARENT, m_style);
+		c_word::draw_string_in_rect(m_surface, m_parent->get_z_order(), m_str, rect, m_font_type, m_font_color, GL_ARGB(0, 0, 0, 0), m_style);
 	}
 }
 

@@ -92,6 +92,6 @@ void c_button::on_paint()
 
 	if (m_str)
 	{
-		c_word::draw_string_in_rect(m_surface, m_z_order, m_str, rect, m_font_type, m_font_color, COLOR_TRANPARENT, m_style);
+		c_word::draw_string_in_rect(m_surface, m_z_order, m_str, rect, m_font_type, m_font_color, GL_ARGB(0, 0, 0, 0), m_style);
 	}
 }
