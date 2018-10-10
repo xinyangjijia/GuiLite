@@ -519,10 +519,9 @@ void c_surface_16bits::set_pixel(int x, int y, unsigned int rgb)
 
 void c_surface_16bits::fill_rect(int x0, int y0, int x1, int y1, unsigned int rgb, unsigned int z_order)
 {
-	rgb = GL_RGB_32_to_16(rgb);
 	if (z_order == m_max_zorder)
 	{
-		return fill_rect_on_fb(x0, y0, x1, y1, rgb);
+		return fill_rect_on_fb(x0, y0, x1, y1, GL_RGB_32_to_16(rgb));
 	}
 	if (z_order == m_top_zorder)
 	{
@@ -537,7 +536,7 @@ void c_surface_16bits::fill_rect(int x0, int y0, int x1, int y1, unsigned int rg
 				*mem_fb++ = rgb;
 			}
 		}
-		return fill_rect_on_fb(x0, y0, x1, y1, rgb);
+		return fill_rect_on_fb(x0, y0, x1, y1, GL_RGB_32_to_16(rgb));
 	}
 
 	for (; y0 <= y1; y0++)
